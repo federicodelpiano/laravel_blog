@@ -1,17 +1,22 @@
-@extends('layouts.app')
+@extends('layouts.home_layout')
 
 @section('title', 'Laravel Blog')
 
-@section('content')
-<section class="container">
-    <h1 class="text-center">Lastest Entries</h1>
-    
-    <hr>
+@section('styles')
+<link href="{{ asset('css/home.css') }}" rel="stylesheet">
+@endsection
 
-    @foreach($entries as $entry)
-        @include('entries.entry_preview')
-        <hr>
-    @endforeach
+@section('content')
+<section class="container home-entries">
+
+    <div class="row">
+        <div class="col-lg-8 col-md-10 mx-auto">
+            @foreach($entries as $entry)
+                @include('entries.entry_preview')
+                <hr>
+            @endforeach
+        </div>
+    </div>
 
     <div class="row justify-content-center my-3">
         <div class="col-md-auto">

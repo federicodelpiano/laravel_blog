@@ -17,9 +17,14 @@
 
 </head>
 <body>
-    {{--<div class="overlay"></div>--}}
+    <header class="site-heading">  
+        @include('layouts.navbar')
 
-    @include('layouts.navbar')
+        <div class="container site-heading__title-container">
+            <h1 class="site-heading__title-container__title text-center">Laravel Blog</h1>
+            <h2 class="site-heading__title-container__subtitle text-center">Blog App by Federico Del Piano</h2>
+        </div>
+    </header>
 
     <main>
         @yield('content')

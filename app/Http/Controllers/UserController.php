@@ -49,12 +49,14 @@ class UserController extends Controller
      */
     public function show(Request $request, $id)
     {
-        $user = User::find($id)->load('entries');
+        $user = User::where('id', $id)->with(['entries' => function ($query) {
+            $query->orderBy('created_at', 'desc');
+        }])->first();
 
         $hiddenTweets = HiddenTweet::where('user_id', $id)->get('tweet_id');
 
         $hiddenTweets = $hiddenTweets->toArray();
-
+        //dd($user);
         $tweets = [];
         if($user->twitter_username) {
             try {

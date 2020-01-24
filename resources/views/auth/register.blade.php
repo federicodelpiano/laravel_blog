@@ -43,12 +43,15 @@
                             <label for="twitter_username" class="col-md-4 col-form-label text-md-right">{{ __('Twitter Username') }}</label>
 
                             <div class="col-md-6">
-                            <div class="input-group mb-2">
-                                <div class="input-group-prepend">
-                                    <div class="input-group-text">@</div>
-                                    </div>
-                                    <input id="twitter_username" type="text" class="form-control @error('twitter_username') is-invalid @enderror" name="twitter_username" value="{{ old('twitter_username') }}">
+                                <div class="input-group mb-2">
+                                    @if(session('twitter_screen_name'))
+                                        {{ session('twitter_screen_name') }}
+                                        <input type="hidden" id="twitter_username" name="twitter_username" value="{{ session('twitter_screen_name') }}">
+                                    @else
+                                        <a href="{{ url('twitter/login') }}">Twitter</a>
+                                    @endif
                                 </div>
+                                
 
                                 @error('twitter_username')
                                     <span class="invalid-feedback" role="alert">

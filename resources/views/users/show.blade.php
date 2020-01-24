@@ -39,34 +39,37 @@
                         @endphp
 
                         @foreach($tweets as $tweet)
-                            @if($thisUser)
-                                <h6>
-                                    <span class="font-weight-bold">{{ $tweet->user->name }}</span>
-                                    <span class="text-muted">{{ __('@') }}{{ $tweet->user->screen_name }}</span>
-                                    {{$tweet->id}}
-                                </h6>
-                                <p>{{ $tweet->text }}</p>
-
-                                @if(in_array($tweet->id, array_column($hiddenTweets, 'tweet_id')))
-                                    <button class="btn btn-primary btn-block btn-sm" data-toggle="tooltip" data-placement="bottom" title="Show Tweet" onclick="showTweet(this, '{{ $tweet->id }}')">
-                                        <i class="fas fa-eye"></i>
-                                    </button>
-                                @else
-                                    <button class="btn btn-primary btn-block btn-sm" data-toggle="tooltip" data-placement="bottom" title="Hide Tweet" onclick="hideTweet(this, '{{ $tweet->id }}')">
-                                        <i class="fas fa-eye-slash"></i>
-                                    </button>
-                                @endif
-                            @else
-                                @if(!in_array($tweet->id, array_column($hiddenTweets, 'tweet_id')))
+                            @if(in_array($tweet->id, array_column($hiddenTweets, 'tweet_id')))
+                                @if($thisUser)
                                     <h6>
                                         <span class="font-weight-bold">{{ $tweet->user->name }}</span>
                                         <span class="text-muted">{{ __('@') }}{{ $tweet->user->screen_name }}</span>
                                         {{$tweet->id}}
                                     </h6>
                                     <p>{{ $tweet->text }}</p>
+
+                                    <button class="btn btn-primary btn-block btn-sm" data-toggle="tooltip" data-placement="bottom" title="Show Tweet" onclick="showTweet(this, '{{ $tweet->id }}')">
+                                        <i class="fas fa-eye"></i>
+                                    </button>
+
+                                    <hr>
                                 @endif
+                            @else
+                                <h6>
+                                    <span class="font-weight-bold">{{ $tweet->user->name }}</span>
+                                    <span class="text-muted">{{ __('@') }}{{ $tweet->user->screen_name }}</span>
+                                    {{$tweet->id}}
+                                </h6>
+                                <p>{{ $tweet->text }}</p>
+                                
+                                @if($thisUser)
+                                    <button class="btn btn-primary btn-block btn-sm" data-toggle="tooltip" data-placement="bottom" title="Hide Tweet" onclick="hideTweet(this, '{{ $tweet->id }}')">
+                                        <i class="fas fa-eye-slash"></i>
+                                    </button>
+                                @endif
+
+                                <hr>
                             @endif
-                            <hr>
                         @endforeach
                     @else 
                         <h6>This user has not set up a twitter account yet.</h6>
@@ -75,12 +78,6 @@
             </article>
         </aside>
     </section>
-
-    {{print_r($hiddenTweets)}}
-    <hr>
-    {{ print_r(array_column($hiddenTweets, 'tweet_id')) }}
-    
-
 </div>
 @endsection
 

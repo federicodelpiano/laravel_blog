@@ -5,7 +5,7 @@
 @section('content')
 <div class="container">
     <h1>Welcome</h1>
-
+    
     <hr>
 
     @foreach($entries as $entry)

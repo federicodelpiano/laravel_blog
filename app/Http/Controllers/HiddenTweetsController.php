@@ -2,12 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\User;
 use App\HiddenTweet;
-use Twitter;
 use Illuminate\Http\Request;
 
-class UserController extends Controller
+class HiddenTweetsController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,8 +14,7 @@ class UserController extends Controller
      */
     public function index()
     {
-        $users = User::all();
-        return $users;
+        //
     }
 
     /**
@@ -38,40 +35,32 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $hiddenTweet = new HiddenTweet;
+        $hiddenTweet->user_id = $request->user()->id;
+        $hiddenTweet->tweet_id = $request->tweet_id;
+        $hiddenTweet->save();
+
+        return response()->json($hiddenTweet);
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\User  $user
+     * @param  \App\HiddenTweet  $hiddenTweet
      * @return \Illuminate\Http\Response
      */
-    public function show(Request $request, $id)
+    public function show(HiddenTweet $hiddenTweet)
     {
-        $user = User::find($id)->load('entries');
-
-        $hiddenTweets = HiddenTweet::where('user_id', $id)->get('tweet_id');
-
-        $hiddenTweets = $hiddenTweets->toArray();
-
-        $tweets = [];
-        if($user->twitter_username) {
-            try {
-                $tweets = Twitter::getUserTimeline(['screen_name' => $user->twitter_username, 'count' => 20, 'format' => 'object']);
-            }catch (\RuntimeException $e) {}
-        }
-
-        return view('users.show')->with([ 'user' => $user, 'tweets' => $tweets, 'hiddenTweets' => $hiddenTweets ]);
+        //
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\User  $user
+     * @param  \App\HiddenTweet  $hiddenTweet
      * @return \Illuminate\Http\Response
      */
-    public function edit(User $user)
+    public function edit(HiddenTweet $hiddenTweet)
     {
         //
     }
@@ -80,10 +69,10 @@ class UserController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\User  $user
+     * @param  \App\HiddenTweet  $hiddenTweet
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, User $user)
+    public function update(Request $request, HiddenTweet $hiddenTweet)
     {
         //
     }
@@ -91,11 +80,13 @@ class UserController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\User  $user
+     * @param  \App\HiddenTweet  $hiddenTweet
      * @return \Illuminate\Http\Response
      */
-    public function destroy(User $user)
+    public function destroy(Request $request, $id)
     {
-        //
+        $hiddenTweet = HiddenTweet::where('tweet_id', $id)->delete();
+
+        return response()->json($hiddenTweet);
     }
 }

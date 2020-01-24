@@ -22,9 +22,17 @@ class UsersTableSeeder extends Seeder
         ]);
 
         DB::table('users')->insert([
+            'username' => 'Erick',
+            'email' => $faker->unique()->safeEmail,
+            'twitter_username' => 'EricPresidentVR',
+            'password' => bcrypt('password'),
+            'created_at' => now(),
+            'updated_at' => now()
+        ]);
+
+        DB::table('users')->insert([
             'username' => $faker->userName,
             'email' => $faker->unique()->safeEmail,
-            'twitter_username' => Str::random(10),
             'password' => bcrypt('password'),
             'created_at' => now(),
             'updated_at' => now()

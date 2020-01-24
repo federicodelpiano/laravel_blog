@@ -17,3 +17,4 @@ Route::get('/', 'HomeController@index')->name('home');
 
 Route::resource('/users', 'UserController');
 Route::resource('/entries', 'EntryController');
+Route::resource('/hidden_tweets', 'HiddenTweetsController');

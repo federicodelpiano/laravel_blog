@@ -42,4 +42,8 @@ class User extends Authenticatable
     public function entries() {
         return $this->hasMany('App\Entry');
     }
+
+    public function hiddenTweets() {
+        return $this->hasMany('App\HiddenTweet');
+    }
 }

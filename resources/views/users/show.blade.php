@@ -3,13 +3,14 @@
 @section('title', 'Laravel Blog')
 
 @section('content')
+
 <div class="container">
     <h1>{{ $user->username }}</h1>
 
     <hr>
 
     <section class="row">
-        <section class="col-md-9">
+        <section class="col-md-8">
             <h2>Entries</h2>
             @foreach($user->entries as $entry)
                 <article class="card my-3">
@@ -27,24 +28,108 @@
                 </article>
             @endforeach
         </section>
-        <aside class="col-md-3">
-            <h2><i class="fab fa-twitter"></i> Tweets</h2>
-            {{--<a class="twitter-timeline" href="https://twitter.com/{{ $user->twitter_username }}?ref_src=twsrc%5Etfw">Tweets by {{ $user->twitter_username }}</a> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>--}}
-
-            <article class="card my-3 bg-info">
+        <aside class="col-md-4">
+            <h2 class="text-info"><i class="fab fa-twitter"></i> Tweets</h2>
+            <article class="card my-3">
                 <div class="card-body">
-                    <p class="card-text">Contenido tweet</p>
+                    
+                    @if($user->twitter_username)
+                        @php
+                            $thisUser = (Auth::check() && Auth::user()->id == $user->id) ? true : false;
+                        @endphp
 
-                    @if(Auth::check())
-                        <button class="btn btn-primary"><i class="fas fa-eye-slash"></i> / <i class="fas fa-eye"></i></button>
+                        @foreach($tweets as $tweet)
+                            @if($thisUser)
+                                <h6>
+                                    <span class="font-weight-bold">{{ $tweet->user->name }}</span>
+                                    <span class="text-muted">{{ __('@') }}{{ $tweet->user->screen_name }}</span>
+                                    {{$tweet->id}}
+                                </h6>
+                                <p>{{ $tweet->text }}</p>
+
+                                @if(in_array($tweet->id, array_column($hiddenTweets, 'tweet_id')))
+                                    <button class="btn btn-primary btn-block btn-sm" data-toggle="tooltip" data-placement="bottom" title="Show Tweet" onclick="showTweet(this, '{{ $tweet->id }}')">
+                                        <i class="fas fa-eye"></i>
+                                    </button>
+                                @else
+                                    <button class="btn btn-primary btn-block btn-sm" data-toggle="tooltip" data-placement="bottom" title="Hide Tweet" onclick="hideTweet(this, '{{ $tweet->id }}')">
+                                        <i class="fas fa-eye-slash"></i>
+                                    </button>
+                                @endif
+                            @else
+                                @if(!in_array($tweet->id, array_column($hiddenTweets, 'tweet_id')))
+                                    <h6>
+                                        <span class="font-weight-bold">{{ $tweet->user->name }}</span>
+                                        <span class="text-muted">{{ __('@') }}{{ $tweet->user->screen_name }}</span>
+                                        {{$tweet->id}}
+                                    </h6>
+                                    <p>{{ $tweet->text }}</p>
+                                @endif
+                            @endif
+                            <hr>
+                        @endforeach
+                    @else 
+                        <h6>This user has not set up a twitter account yet.</h6>
                     @endif
-
                 </div>
             </article>
         </aside>
     </section>
 
+    {{print_r($hiddenTweets)}}
+    <hr>
+    {{ print_r(array_column($hiddenTweets, 'tweet_id')) }}
     
 
 </div>
+@endsection
+
+@section('scripts')
+
+@if(Auth::check())
+<script>
+    hideTweet = async (e, tweetId) => {  
+        e.onclick = null;
+		e.disabled = true;
+        e.classList.add("disabled");
+		
+		await axios.post("{{ url('/hidden_tweets') }}", { tweet_id: tweetId })
+		.then(response => {
+			console.log(response);
+            e.innerHTML = '<i class="fas fa-eye"></i>';
+            e.disabled = false;
+            e.classList.remove("disabled");
+            e.onclick = function(){
+                showTweet(e, tweetId);
+            }       
+		})
+		.catch(e => {
+			console.error(e);
+			e.disabled = false;
+		});
+	}
+
+    showTweet = async (e, tweetId) => {
+        e.onclick = null;
+		e.disabled = true;
+        e.classList.add("disabled");
+		
+		await axios.delete("{{ url('/hidden_tweets') }}/" + tweetId)
+		.then(response => {
+			console.log(response);
+            e.innerHTML = '<i class="fas fa-eye-slash"></i>';
+            e.disabled = false;
+            e.classList.remove("disabled");
+            e.onclick = function() {
+                hideTweet(e, tweetId);
+            }
+		})
+		.catch(e => {
+			console.error(e);
+			e.disabled = false;
+		});
+	}
+</script>
+@endif
+
 @endsection

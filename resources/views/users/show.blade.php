@@ -4,7 +4,30 @@
 
 @section('content')
 
-<div class="container">
+<section class="container my-4">
+
+    <section class="row">
+        <section class="col-md-8">
+            <section>
+                @include('users.profile_card')
+            </section>
+
+            <section class="mt-5">
+                <h2>User Entries</h2>
+                @foreach($user->entries as $entry)
+                    @include('entries.entry_preview')
+                    <hr>
+                @endforeach
+            </section>
+        </section>
+
+        <aside class="col-md-4">
+            @include('users.tweets')
+        </aside>
+    </section>
+
+    {{--
+    
     <h1>{{ $user->username }}</h1>
 
     <hr>
@@ -78,7 +101,8 @@
             </article>
         </aside>
     </section>
-</div>
+    --}}
+</section>
 @endsection
 
 @section('scripts')

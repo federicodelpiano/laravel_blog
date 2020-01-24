@@ -31,6 +31,17 @@
                 </div>
             </div>
         </div>
+
+        @if(Auth::check())
+            <a href="/entries/{{ $entry->id }}/edit" class="btn btn-primary"><i class="fas fa-edit"></i> Edit</a>
+
+            <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#modal">
+                <i class="far fa-trash-alt"></i> Delete
+            </button>
+        @endif
+
     </div>
 </div>
+@include('entries.delete_modal')
+
 @endsection

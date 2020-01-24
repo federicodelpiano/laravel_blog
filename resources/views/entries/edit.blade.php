@@ -46,6 +46,7 @@
 
                     <div class="form-group">
                         <button type="submit" class="btn btn-primary">Save</button>
+                        <a href="{{ url()->previous() }}" class="btn btn-secondary">Cancel</a>
                     </div>
                 </form>
             </div>

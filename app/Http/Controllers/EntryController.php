@@ -97,8 +97,11 @@ class EntryController extends Controller
      * @param  \App\Entry  $entry
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Entry $entry)
+    public function destroy(Request $request, $id)
     {
-        //
+        $entry = Entry::find($id);
+        $entry->delete();
+
+        return redirect()->route('home');
     }
 }

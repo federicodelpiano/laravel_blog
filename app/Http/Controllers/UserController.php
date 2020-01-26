@@ -60,7 +60,7 @@ class UserController extends Controller
         $tweets = [];
         if($user->twitter_username) {
             try {
-                $tweets = Twitter::getUserTimeline(['screen_name' => $user->twitter_username, 'count' => 20, 'format' => 'object']);
+                $tweets = Twitter::getUserTimeline(['screen_name' => $user->twitter_username, 'count' => 10, 'format' => 'object']);
             }catch (\RuntimeException $e) {}
         }
 

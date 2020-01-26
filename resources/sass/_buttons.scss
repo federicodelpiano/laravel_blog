@@ -1,0 +1,21 @@
+.edit-button {
+    @include button($edit-button-bg, $edit-button-bg-hover);
+}
+
+.delete-button {
+    @include button($delete-button-gb, $delete-button-gb-hover);
+}
+
+.cancel-button {
+    @include button($cancel-button-gb, $cancel-button-gb-hover);
+}
+
+.hidden-button {
+    @include button($cancel-button-gb, $cancel-button-gb-hover);
+    padding: 5px 25px;
+}
+
+.showing-button {
+    @include button($edit-button-bg, $edit-button-bg-hover);
+    padding: 5px 25px;
+}

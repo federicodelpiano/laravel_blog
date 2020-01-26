@@ -1,27 +1,32 @@
-@extends('layouts.home_layout')
+@extends('layouts.header_image_layout')
 
-@section('title', 'Laravel Blog')
+@section('title', 'Home')
 
-@section('styles')
-<link href="{{ asset('css/home.css') }}" rel="stylesheet">
+@section('section-class', 'site-heading--home')
+@section('header-title', 'Laravel Blog')
+@section('header-subtitle')
+<h2 class="site-heading__title-container__subtitle text-center">
+    By Federico Del Piano
+</h2>
 @endsection
 
 @section('content')
-<section class="container home-entries">
-
-    <div class="row">
-        <div class="col-lg-8 col-md-10 mx-auto">
-            @foreach($entries as $entry)
-                @include('entries.entry_preview')
-                <hr>
-            @endforeach
+<main>
+    <section class="container home-entries">
+        <div class="row">
+            <div class="col-lg-8 col-md-10 mx-auto">
+                @foreach($entries as $entry)
+                    @include('entries.entry_preview')
+                    <hr>
+                @endforeach
+            </div>
         </div>
-    </div>
 
-    <div class="row justify-content-center my-3">
-        <div class="col-md-auto">
-            {{ $entries->links() }}
+        <div class="row justify-content-center my-3">
+            <div class="col-md-auto">
+                {{ $entries->links() }}
+            </div>
         </div>
-    </div>
-</section>
+    </section>
+</main>
 @endsection

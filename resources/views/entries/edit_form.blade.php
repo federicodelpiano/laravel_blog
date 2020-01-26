@@ -7,7 +7,7 @@
             type="text"
             name="title"
             id="title"
-            class="form-control @error('title') is-invalid @enderror"
+            class="form-control custom-text-input @error('title') is-invalid @enderror"
             value="{{ $entry->title }}"
         >
 
@@ -23,7 +23,7 @@
             name="content"
             id="content"
             rows="8"
-            class="form-control @error('content') is-invalid @enderror"
+            class="form-control custom-textarea @error('content') is-invalid @enderror"
             >{{ $entry->content }}</textarea>
 
             @error('content')
@@ -31,8 +31,8 @@
             @enderror
     </div>
 
-    <div class="form-group">
-        <button type="submit" class="btn btn-primary">Save</button>
-        <a href="{{ url()->previous() }}" class="btn btn-secondary">Cancel</a>
+    <div>
+        <button type="submit" class="btn btn-primary edit-button">Save</button>
+        <a href="{{ url()->previous() }}" class="btn btn-secondary cancel-button">Cancel</a>
     </div>
 </form>

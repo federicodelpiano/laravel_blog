@@ -1,0 +1,33 @@
+@mixin background-with-img($opacity, $url) {
+    background: linear-gradient(rgba(0, 0, 0, $opacity),rgba(0, 0, 0, $opacity)), url($url);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center bottom;
+}
+
+@mixin button($bgColor, $bgHover) {
+    background-color: $bgColor;
+    font-size: 14px;
+    font-weight: $font-weight-title;
+    padding: 15px 25px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    border: 0;
+    border-radius: 0;
+    font-family: $font-family-sans-serif;
+
+    &:hover {
+        background-color: $bgHover;
+    }
+}
+
+@mixin custom-form($fontSize) {
+    font-size: $fontSize;
+    padding: 0;
+    resize: none;
+    border: none;
+    border-radius: 0;
+    background: 0 0;
+    box-shadow: none!important;
+    font-family: $font-family-serif;
+}

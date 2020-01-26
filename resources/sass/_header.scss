@@ -1,0 +1,26 @@
+.site-heading {
+    position: relative;
+    background-color: $white;
+    @include background-with-img(0.4, "/../img/home-bg.jpg");
+    
+    font-family: $font-family-sans-serif;
+    color: $white;
+    margin-bottom: 3rem;
+
+    &__title-container {
+        padding: 200px 0;
+
+        &__title {
+            font-size: 80px;
+            font-weight: $font-weight-title;
+        }
+        &__subtitle {
+            font-size: 24px;
+            font-weight: $font-weight-content;
+        }
+    }
+}
+
+.site-heading--entry {
+    @include background-with-img(0.4, "/../img/entry-bg.jpg");
+}

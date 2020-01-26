@@ -1,0 +1,17 @@
+.form-group {
+    border-bottom: 1px solid #dee2e6;
+    font-family: $font-family-serif;
+
+    label {
+        font-size: 1.5em;
+        color: $color-secondary;
+    }
+
+    .custom-text-input {
+        @include custom-form(1.5em);
+    }
+
+    .custom-textarea {
+        @include custom-form(1em);
+    }
+}

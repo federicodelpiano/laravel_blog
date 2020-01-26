@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>@yield('title')</title>
+    <title>@yield('title') - Laravel Blog</title>
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
@@ -17,12 +17,14 @@
 
 </head>
 <body>
-    <header class="site-heading">  
-        @include('layouts.navbar')
+    <header class="site-heading @yield('section-class')">  
+        @include('layouts.navbar', ['dark' => false])
 
         <div class="container site-heading__title-container">
-            <h1 class="site-heading__title-container__title text-center">Laravel Blog</h1>
-            <h2 class="site-heading__title-container__subtitle text-center">Blog App by Federico Del Piano</h2>
+            <h1 class="site-heading__title-container__title text-center">
+                @yield('header-title')
+            </h1>
+            @yield('header-subtitle')
         </div>
     </header>
 
@@ -31,11 +33,6 @@
     </main>
     
     <script src="{{ asset('js/app.js') }}"></script>
-    <script>
-        $(function () {
-            $('[data-toggle="tooltip"]').tooltip()
-        })
-    </script>
     @yield('scripts')
 </body>
 </html>

@@ -1,17 +1,13 @@
-<nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
+<nav class="navbar navbar-expand-md @if($dark) navbar-dark bg-dark @endif">
     <div class="container">
-        <a class="navbar-brand" href="{{ url('/') }}">
+        <a href="{{ url('/') }}">
             Laravel Blog
         </a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
-            <span class="navbar-toggler-icon"></span>
+            <i class="fas fa-bars"></i>
         </button>
 
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <!-- Left Side Of Navbar -->
-            <ul class="navbar-nav mr-auto">
-
-            </ul>
 
             <!-- Right Side Of Navbar -->
             <ul class="navbar-nav ml-auto">
@@ -27,7 +23,7 @@
                     @endif
                 @else
                     <li class="nav-item">
-                        <a class="btn btn-primary" href="{{ url('/entries/create') }}"><i class="fas fa-plus"></i> New Entry</a>
+                        <a class="nav-link" href="{{ url('/entries/create') }}">New Entry</a>
                     </li>
                     <li class="nav-item dropdown">
                         <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>

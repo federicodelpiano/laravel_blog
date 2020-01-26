@@ -3,8 +3,13 @@ $body-bg: #fff;
 
 // Typography
 $font-family-sans-serif: 'Open Sans', sans-serif;
+$font-family-serif: 'Lora', serif;
 $font-size-base: 0.9rem;
 $line-height-base: 1.6;
+$font-weight-title: 800;
+$font-weight-content: 400;
+$color-title: #212529;
+$color-secondary: #868e96; 
 
 // Colors
 $blue: #3490dc;
@@ -17,3 +22,13 @@ $yellow: #ffed4a;
 $green: #38c172;
 $teal: #4dc0b5;
 $cyan: #6cb2eb;
+$white: #fff;
+$white-darken: #eee;
+$black: #000;
+
+$edit-button-bg: #0085a1;
+$edit-button-bg-hover: #027288;
+$delete-button-gb: #e3342f;
+$delete-button-gb-hover: #bd2824;
+$cancel-button-gb: #6c757d;
+$cancel-button-gb-hover: #575e65;

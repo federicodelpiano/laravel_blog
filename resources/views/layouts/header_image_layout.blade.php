@@ -21,7 +21,7 @@
         @include('layouts.navbar', ['dark' => false])
 
         <div class="container site-heading__title-container">
-            <h1 class="site-heading__title-container__title text-center">
+            <h1 class="site-heading__title-container__title text-center display-4">
                 @yield('header-title')
             </h1>
             @yield('header-subtitle')

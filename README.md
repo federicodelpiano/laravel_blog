@@ -4,7 +4,7 @@
 
 ### Instalation
 
-#### - Clone the project, install composer and npm:
+#### - Clone the project:
 ```
 git clone https://github.com/federicodelpiano/laravel_blog.git
 ```
@@ -33,12 +33,7 @@ For this, you can either create a local MySQL datase called "laravel_blog" (utf8
 php artisan migrate --seed
 ```
 
-Or run the DB creation script provided (laravel_blog.sql). This script will create all the tables the app needs and will also insert some users and entries for testing purposes.
-
-#### - Run migrations and seeders
-```
-php artisan migrate --seed
-```
+Or run the DB creation script provided (laravel_blog.sql). This will create all the tables the app needs and also insert some users and entries for testing purposes.
 
 
 ### Run the app

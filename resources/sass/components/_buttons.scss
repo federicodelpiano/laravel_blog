@@ -1,5 +1,5 @@
-.edit-button {
-    @include button($edit-button-bg, $edit-button-bg-hover);
+.primary-button {
+    @include button($primary-button-bg, $primary-button-bg-hover);
 }
 
 .delete-button {
@@ -16,6 +16,6 @@
 }
 
 .showing-button {
-    @include button($edit-button-bg, $edit-button-bg-hover);
+    @include button($primary-button-bg, $primary-button-bg-hover);
     padding: 5px 25px;
 }

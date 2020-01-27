@@ -6,18 +6,18 @@
 <section class="container my-4">
     <section class="row">
         <section class="col-md-8">
-            @include('users.profile_card')
+            @include('users.components.profile_card')
 
             <section class="mt-5">
                 @foreach($user->entries as $entry)
-                    @include('entries.entry_preview')
+                    @include('entries.components.entry_preview')
                     <hr>
                 @endforeach
             </section>
         </section>
 
         <aside class="col-md-4">
-            @include('users.tweets')
+            @include('users.components.tweets')
         </aside>
     </section>
 </section>

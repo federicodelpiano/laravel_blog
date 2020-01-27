@@ -4,11 +4,11 @@
 
 @section('content')
 <section class="container edit-entry mt-4">
-    <h1 class="text-center edit-entry__title">Edit Entry</h1>
+    <h1 class="text-center form-title">Edit Entry</h1>
 
     <div class="row justify-content-center">
         <div class="col-md-6">
-            @include('entries.edit_form')
+            @include('entries.components.edit_form')
         </div>
     </div>
 </section>

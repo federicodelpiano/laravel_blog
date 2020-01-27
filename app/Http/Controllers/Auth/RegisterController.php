@@ -68,7 +68,7 @@ class RegisterController extends Controller
         return User::create([
             'username' => $data['username'],
             'email' => $data['email'],
-            'twitter_username' => $data['twitter_username'],
+            'twitter_username' => isset($data['twitter_username']) ? $data['twitter_username'] : null,
             'password' => Hash::make($data['password']),
         ]);
     }

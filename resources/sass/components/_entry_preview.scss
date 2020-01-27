@@ -2,7 +2,6 @@
     color: $color-title;
     font-family: $font-family-sans-serif;
     
-
     &__title {
         font-size: 36px;
         font-weight: $font-weight-title;
@@ -26,26 +25,5 @@
         font-size: 18px;
         font-style: italic;
         color: #868e96;
-    }
-    &__edit-link {
-        @include button($edit-button-bg, $edit-button-bg-hover);
-    }
-}
-
-.entry-body {
-    .entry-body__content {
-        font-family: $font-family-serif;
-        font-size: 20px;
-        font-weight: $font-weight-content;
-        color: $color-title;
-        line-height: 1.5;
-        margin: 30px 0;
-    }
-}
-
-.edit-entry {
-    .edit-entry__title {
-        font-size: 36px;
-        font-weight: $font-weight-title;
     }
 }

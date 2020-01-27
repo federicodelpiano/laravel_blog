@@ -6,6 +6,6 @@
     </p>
 
     @if(Auth::check())
-    <a href="{{ url('/entries/' . $entry->id . '/edit') }}" class="btn btn-primary edit-button">Edit</a>
+    <a href="{{ url('/entries/' . $entry->id . '/edit') }}" class="btn btn-primary primary-button">Edit</a>
     @endif
 </article>

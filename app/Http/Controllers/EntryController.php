@@ -7,33 +7,16 @@ use Illuminate\Http\Request;
 
 class EntryController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function index()
+    public function __construct()
     {
-        $entries = Entry::all()->load('user');
-        return $entries;
+        $this->middleware('auth')->except(['show']);
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function create()
     {
         return view('entries.create');
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
     public function store(Request $request)
     {
         request()->validate([
@@ -50,37 +33,18 @@ class EntryController extends Controller
         return redirect()->route('home');
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Entry  $entry
-     * @return \Illuminate\Http\Response
-     */
     public function show(Request $request, $id)
     {
         $entry = Entry::find($id)->load('user');
         return view('entries.show')->with([ 'entry' => $entry ]);
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Entry  $entry
-     * @return \Illuminate\Http\Response
-     */
     public function edit(Request $request, $id)
     {
         $entry = Entry::find($id);
         return view('entries.edit')->with([ 'entry' => $entry ]);
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Entry  $entry
-     * @return \Illuminate\Http\Response
-     */
     public function update(Request $request, $id)
     {
         $entry = Entry::find($id);
@@ -91,12 +55,6 @@ class EntryController extends Controller
         return redirect('/entries/' . $id);
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Entry  $entry
-     * @return \Illuminate\Http\Response
-     */
     public function destroy(Request $request, $id)
     {
         $entry = Entry::find($id);

@@ -18,7 +18,7 @@
 
             <div class="my-5">
                 @if(Auth::check())
-                    <a href="/entries/{{ $entry->id }}/edit" class="btn btn-primary edit-button">Edit</a>
+                    <a href="/entries/{{ $entry->id }}/edit" class="btn btn-primary primary-button">Edit</a>
 
                     <button type="button" class="btn btn-danger delete-button" data-toggle="modal" data-target="#modal">
                         Delete
@@ -30,7 +30,7 @@
 </section>
 
 @if(Auth::check())
-    @include('entries.delete_modal')
+    @include('entries.components.delete_modal')
 @endif
 
 @endsection

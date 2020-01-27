@@ -1,10 +1,15 @@
-.form-group {
-    border-bottom: 1px solid #dee2e6;
+.form-title {
+    font-size: 36px;
+    font-weight: $font-weight-title;
+}
+
+.custom-form-group {
     font-family: $font-family-serif;
 
     label {
-        font-size: 1.5em;
+        font-size: 1.0em;
         color: $color-secondary;
+        margin-bottom: 0;
     }
 
     .custom-text-input {

@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-md @if($dark) navbar-dark bg-dark @endif">
+<nav class="navbar navbar-expand-md {{ $dark ? 'navbar-dark bg-dark' : '' }}">
     <div class="container">
         <a href="{{ url('/') }}">
             Laravel Blog
@@ -18,7 +18,7 @@
                     </li>
                     @if (Route::has('register'))
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
+                            <a class="nav-link" href="{{ url('register_twitter') }}">{{ __('Register') }}</a>
                         </li>
                     @endif
                 @else

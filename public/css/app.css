@@ -11434,6 +11434,15 @@ a.text-dark:focus {
   background-position: center bottom;
 }
 
+.entry-body .entry-body__content {
+  font-family: "Lora", serif;
+  font-size: 20px;
+  font-weight: 400;
+  color: #212529;
+  line-height: 1.5;
+  margin: 30px 0;
+}
+
 .entry-container {
   color: #212529;
   font-family: "Open Sans", sans-serif;
@@ -11466,7 +11475,7 @@ a.text-dark:focus {
   color: #868e96;
 }
 
-.entry-container__edit-link {
+.primary-button {
   background-color: #0085a1;
   font-size: 14px;
   font-weight: 800;
@@ -11478,37 +11487,7 @@ a.text-dark:focus {
   font-family: "Open Sans", sans-serif;
 }
 
-.entry-container__edit-link:hover {
-  background-color: #027288;
-}
-
-.entry-body .entry-body__content {
-  font-family: "Lora", serif;
-  font-size: 20px;
-  font-weight: 400;
-  color: #212529;
-  line-height: 1.5;
-  margin: 30px 0;
-}
-
-.edit-entry .edit-entry__title {
-  font-size: 36px;
-  font-weight: 800;
-}
-
-.edit-button {
-  background-color: #0085a1;
-  font-size: 14px;
-  font-weight: 800;
-  padding: 15px 25px;
-  letter-spacing: 1px;
-  text-transform: uppercase;
-  border: 0;
-  border-radius: 0;
-  font-family: "Open Sans", sans-serif;
-}
-
-.edit-button:hover {
+.primary-button:hover {
   background-color: #027288;
 }
 
@@ -11578,32 +11557,39 @@ a.text-dark:focus {
   background-color: #027288;
 }
 
-.form-group {
-  border-bottom: 1px solid #dee2e6;
+.form-title {
+  font-size: 36px;
+  font-weight: 800;
+}
+
+.custom-form-group {
   font-family: "Lora", serif;
 }
 
-.form-group label {
-  font-size: 1.5em;
+.custom-form-group label {
+  font-size: 1em;
   color: #868e96;
+  margin-bottom: 0;
 }
 
-.form-group .custom-text-input {
+.custom-form-group .custom-text-input {
   font-size: 1.5em;
   padding: 0;
   resize: none;
   border: none;
+  border-bottom: 1px solid #dee2e6;
   border-radius: 0;
   background: 0 0;
   box-shadow: none !important;
   font-family: "Lora", serif;
 }
 
-.form-group .custom-textarea {
+.custom-form-group .custom-textarea {
   font-size: 1em;
   padding: 0;
   resize: none;
   border: none;
+  border-bottom: 1px solid #dee2e6;
   border-radius: 0;
   background: 0 0;
   box-shadow: none !important;

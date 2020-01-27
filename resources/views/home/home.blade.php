@@ -11,22 +11,20 @@
 @endsection
 
 @section('content')
-<main>
-    <section class="container home-entries">
-        <div class="row">
-            <div class="col-lg-8 col-md-10 mx-auto">
-                @foreach($entries as $entry)
-                    @include('entries.entry_preview')
-                    <hr>
-                @endforeach
-            </div>
+<section class="container home-entries">
+    <div class="row">
+        <div class="col-lg-8 col-md-10 mx-auto">
+            @foreach($entries as $entry)
+                @include('entries.components.entry_preview')
+                <hr>
+            @endforeach
         </div>
+    </div>
 
-        <div class="row justify-content-center my-3">
-            <div class="col-md-auto">
-                {{ $entries->links() }}
-            </div>
+    <div class="row justify-content-center my-3">
+        <div class="col-auto">
+            {{ $entries->links() }}
         </div>
-    </section>
-</main>
+    </div>
+</section>
 @endsection

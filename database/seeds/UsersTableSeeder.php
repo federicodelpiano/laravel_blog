@@ -1,7 +1,6 @@
 <?php
 
 use Illuminate\Database\Seeder;
-use Faker\Generator as Faker;
 
 class UsersTableSeeder extends Seeder
 {
@@ -10,32 +9,27 @@ class UsersTableSeeder extends Seeder
      *
      * @return void
      */
-    public function run(Faker $faker)
+    public function run()
     {
-        DB::table('users')->insert([
-            'username' => 'fede',
-            'email' => 'fede@fede.com',
-            'twitter_username' => 'fededelpianocod',
-            'password' => bcrypt('fede'),
-            'created_at' => now(),
-            'updated_at' => now()
-        ]);
+        // Create Test User with 3 entries
+        factory(App\User::class, 1)
+        ->create([
+            'username' => 'federico',
+            'email' => 'federico@federico.com',
+            'twitter_username' => 'DpFederico',
+        ])->each(function ($user) {
+            $user->entries()->createMany(
+                factory(App\Entry::class, 3)->make()->toArray()
+            );
+        });
 
-        DB::table('users')->insert([
-            'username' => 'Erick',
-            'email' => $faker->unique()->safeEmail,
-            'twitter_username' => 'EricPresidentVR',
-            'password' => bcrypt('password'),
-            'created_at' => now(),
-            'updated_at' => now()
-        ]);
-
-        DB::table('users')->insert([
-            'username' => $faker->userName,
-            'email' => $faker->unique()->safeEmail,
-            'password' => bcrypt('password'),
-            'created_at' => now(),
-            'updated_at' => now()
-        ]);
+        // Create 10 more users with 3 entries each
+        factory(App\User::class, 10)
+        ->create()
+        ->each(function ($user) {
+            $user->entries()->createMany(
+                factory(App\Entry::class, 3)->make()->toArray()
+            );
+        });
     }
 }

@@ -11,7 +11,7 @@
 @endsection
 
 @section('content')
-<section class="container home-entries">
+<section class="container home-entries mb-5">
     <div class="row">
         <div class="col-lg-8 col-md-10 mx-auto">
             @foreach($entries as $entry)

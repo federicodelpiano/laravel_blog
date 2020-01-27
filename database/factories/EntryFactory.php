@@ -2,16 +2,15 @@
 
 /** @var \Illuminate\Database\Eloquent\Factory $factory */
 
-use App\User;
+use App\Entry;
 use Faker\Generator as Faker;
 use Illuminate\Support\Str;
 
 
-$factory->define(User::class, function (Faker $faker) {
+$factory->define(Entry::class, function (Faker $faker) {
     return [
-        'username' => $faker->userName,
-        'email' => $faker->unique()->safeEmail,
-        'password' => bcrypt('password'),
+        'title' => $faker->text(20),
+        'content' => $faker->paragraphs(8, true),
         'created_at' => now(),
         'updated_at' => now()
     ];

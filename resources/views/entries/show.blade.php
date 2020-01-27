@@ -11,7 +11,7 @@
 @endsection
 
 @section('content')
-<section class="container entry-body">
+<section class="container entry-body mb-5">
     <div class="row">
         <div class="col-lg-8 col-md-10 mx-auto">
             <p class="lead entry-body__content">{!! nl2br(e($entry->content)) !!}</p>

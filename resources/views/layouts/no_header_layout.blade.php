@@ -21,7 +21,7 @@
         @include('layouts.navbar', ['dark' => true])
     </header>
 
-    <main>
+    <main class="mb-5">
         @yield('content')
     </main>
     

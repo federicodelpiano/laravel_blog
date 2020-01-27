@@ -1,29 +1,41 @@
 <h1 align="center">Laravel Blog</h1>
 
-<h2 align="center">A Blog App by Federico Del Piano</h2>
-
+<h2 align="center">A Blog App by Federico Del Piano with Laravel 6</h2>
 
 ### Instalation
 
-#### 1. Clone the project, install composer and npm:
+#### - Clone the project, install composer and npm:
 ```
-git clone https://github.com/federicodelpiano/yesbooks.git
-cd yesbooks
+git clone https://github.com/federicodelpiano/laravel_blog.git
+```
+
+#### - Move to the created folder:
+```
+cd laravel_blog
+```
+
+#### - Install composer and npm:
+```
 composer install
 npm install
 ```
 
-#### 2. Basic config
+#### - Basic configuration
 ```
 cp .env.example .env
 php artisan key:generate
 php artisan storage:link
 ```
 
-#### 3. Database creation
-Create a local MySQL datase called "laravel_blog" (utf8_general_ci)
+#### - Database tables creation and test data insertion
+For this, you can either create a local MySQL datase called "laravel_blog" (utf8_general_ci) and run migrations and seeders:
+```
+php artisan migrate --seed
+```
 
-#### 4. Run migrations and seeders
+Or run the DB creation script provided (laravel_blog.sql). This script will create all the tables the app needs and will also insert some users and entries for testing purposes.
+
+#### - Run migrations and seeders
 ```
 php artisan migrate --seed
 ```

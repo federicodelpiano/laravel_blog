@@ -2,6 +2,8 @@
     <div class="card-body">
         <h2 class="text-info mb-3"><i class="fab fa-twitter"></i> Latest Tweets</h2>
         
+        <input type="hidden" value="{{ url('/hidden_tweets') }}" id="url" name="url">
+        
         @if($user->twitter_username)
             @php
                 $thisUser = (Auth::check() && Auth::user()->id == $user->id) ? true : false;

@@ -1,5 +1,5 @@
-CREATE DATABASE IF NOT EXISTS laravel_blog2 CHARACTER SET utf8 COLLATE utf8_general_ci;
-USE laravel_blog2;
+CREATE DATABASE IF NOT EXISTS laravel_blog CHARACTER SET utf8 COLLATE utf8_general_ci;
+USE laravel_blog;
 
 CREATE TABLE `entries` (
   `id` bigint(20) UNSIGNED NOT NULL,

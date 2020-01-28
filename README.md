@@ -9,7 +9,7 @@
 git clone https://github.com/federicodelpiano/laravel_blog.git
 ```
 
-#### - Move to the created folder:
+#### - Move to the project folder:
 ```
 cd laravel_blog
 ```
@@ -20,14 +20,14 @@ composer install
 npm install
 ```
 
-#### - Basic configuration
+#### - Basic configuration:
 ```
 cp .env.example .env
 php artisan key:generate
 php artisan storage:link
 ```
 
-#### - Database tables creation and test data insertion
+#### - Database creation and test data:
 For this, you can either create a local MySQL datase called "laravel_blog" (utf8_general_ci) and run migrations and seeders:
 ```
 php artisan migrate --seed

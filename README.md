@@ -24,7 +24,6 @@ npm install
 ```
 cp .env.example .env
 php artisan key:generate
-php artisan storage:link
 ```
 
 #### - Database creation and test data:
@@ -33,10 +32,10 @@ For this, you can either create a local MySQL datase called "laravel_blog" (utf8
 php artisan migrate --seed
 ```
 
-Or run the DB creation script provided (laravel_blog.sql). This will create all the tables the app needs and also insert some users and entries for testing purposes.
+Or run the DB creation script provided (JOBSITY_CHALLENGE/laravel_blog.sql). This will create all the tables the app needs and also insert some users and entries for testing purposes.
 
 
-### Run the app
+### Run the app in localhost
 Run the app in localhost and navigate to http://127.0.0.1:8000:
 ```
 php artisan serve

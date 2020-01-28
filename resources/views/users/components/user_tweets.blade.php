@@ -9,9 +9,13 @@
                 $thisUser = (Auth::check() && Auth::user()->id == $user->id) ? true : false;
             @endphp
 
-            @foreach($tweets as $tweet)
-                @include('users.components.tweet')
-            @endforeach
+            @if(count($tweets) > 0)
+                @foreach($tweets as $tweet)
+                    @include('users.components.tweet')
+                @endforeach
+            @else 
+                <h6>No tweets found.</h6>
+            @endif
         @else 
             <h6>This user has not set up a twitter account yet.</h6>
         @endif

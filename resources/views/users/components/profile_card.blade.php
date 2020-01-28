@@ -1,7 +1,7 @@
 <section class="row profile-card">
     <div class="col-3">
         <figure class="text-center my-2">
-            <img src="{{ asset('storage/user-placeholder.png')}}" class="img-thumbnail border-0 profile-card__img" alt="user-profile-picture">
+            <img src="/img/user-placeholder.png" class="img-thumbnail border-0 profile-card__img" alt="user-profile-picture">
         </figure>
     </div>
     <div class="col-9 my-auto">

@@ -81,6 +81,5 @@ class ExampleTest extends TestCase
         ]);
         $response->assertSessionHasErrors('content');
         $this->assertCount(0, Entry::all());
-
     }
 }

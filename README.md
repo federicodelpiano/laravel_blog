@@ -25,6 +25,7 @@ npm install
 cp .env.example .env
 php artisan key:generate
 ```
+You'll also need to set your Twitter credentials in the .env file for the API to work.
 
 #### - Database creation and test data:
 For this, you can either create a local MySQL datase called "laravel_blog" (utf8_general_ci) and run migrations and seeders:

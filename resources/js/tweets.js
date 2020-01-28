@@ -1,30 +1,28 @@
 const hiddenTweetsUrl = $("#url").val();
 
-window.hideTweet = async (e, tweetId) => {
-    disableButton(e);
-
+window.hideTweet = async (button, tweetId) => {
+    disableButton(button);
     await axios.post(hiddenTweetsUrl, { tweet_id: tweetId })
         .then(response => {
-            setTweetButtonToHidden(e, tweetId);
-            enableButton(e);
+            setTweetButtonToHidden(button, tweetId);
+            enableButton(button);
         })
-        .catch(e => {
-            console.error(e);
-            enableButton(e);
+        .catch(err => {
+            console.error(err);
+            enableButton(button);
         });
 }
 
-window.showTweet = async (e, tweetId) => {
-    disableButton(e);
-
+window.showTweet = async (button, tweetId) => {
+    disableButton(button);
     await axios.delete(hiddenTweetsUrl + "/" + tweetId)
         .then(response => {
-            setTweetButtonToShowing(e, tweetId);
-            enableButton(e);
+            setTweetButtonToShowing(button, tweetId);
+            enableButton(button);
         })
-        .catch(e => {
-            console.error(e);
-            enableButton(e);
+        .catch(err => {
+            console.error(err);
+            enableButton(button);
         });
 }
 
@@ -56,5 +54,3 @@ window.setTweetButtonToShowing = (button, tweetId) => {
         hideTweet(button, tweetId);
     }
 }
-
-window.console.log(hiddenTweetsUrl);

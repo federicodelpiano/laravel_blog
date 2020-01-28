@@ -41,3 +41,8 @@ Run the app in localhost and navigate to http://127.0.0.1:8000:
 ```
 php artisan serve
 ```
+
+### Run Unit Tests
+```
+vendor/bin/phpunit
+```

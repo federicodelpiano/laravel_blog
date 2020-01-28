@@ -859,21 +859,21 @@ window.hideTweet =
 function () {
   var _ref = _asyncToGenerator(
   /*#__PURE__*/
-  _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee(e, tweetId) {
+  _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee(button, tweetId) {
     return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee$(_context) {
       while (1) {
         switch (_context.prev = _context.next) {
           case 0:
-            disableButton(e);
+            disableButton(button);
             _context.next = 3;
             return axios.post(hiddenTweetsUrl, {
               tweet_id: tweetId
             }).then(function (response) {
-              setTweetButtonToHidden(e, tweetId);
-              enableButton(e);
-            })["catch"](function (e) {
-              console.error(e);
-              enableButton(e);
+              setTweetButtonToHidden(button, tweetId);
+              enableButton(button);
+            })["catch"](function (err) {
+              console.error(err);
+              enableButton(button);
             });
 
           case 3:
@@ -894,19 +894,19 @@ window.showTweet =
 function () {
   var _ref2 = _asyncToGenerator(
   /*#__PURE__*/
-  _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee2(e, tweetId) {
+  _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee2(button, tweetId) {
     return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee2$(_context2) {
       while (1) {
         switch (_context2.prev = _context2.next) {
           case 0:
-            disableButton(e);
+            disableButton(button);
             _context2.next = 3;
             return axios["delete"](hiddenTweetsUrl + "/" + tweetId).then(function (response) {
-              setTweetButtonToShowing(e, tweetId);
-              enableButton(e);
-            })["catch"](function (e) {
-              console.error(e);
-              enableButton(e);
+              setTweetButtonToShowing(button, tweetId);
+              enableButton(button);
+            })["catch"](function (err) {
+              console.error(err);
+              enableButton(button);
             });
 
           case 3:
@@ -952,8 +952,6 @@ window.setTweetButtonToShowing = function (button, tweetId) {
     hideTweet(button, tweetId);
   };
 };
-
-window.console.log(hiddenTweetsUrl);
 
 /***/ }),
 

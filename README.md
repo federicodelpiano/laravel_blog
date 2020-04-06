@@ -33,7 +33,7 @@ For this, you can either create a local MySQL datase called "laravel_blog" (utf8
 php artisan migrate --seed
 ```
 
-Or run the DB creation script provided (JOBSITY_CHALLENGE/laravel_blog.sql). This will create all the tables the app needs and also insert some users and entries for testing purposes.
+Or run the DB creation script provided (SQL/laravel_blog.sql). This will create all the tables the app needs and also insert some users and entries for testing purposes.
 
 
 ### Run the app in localhost
